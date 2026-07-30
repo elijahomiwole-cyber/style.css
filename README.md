@@ -1,29 +1,27 @@
-/* ===========================
+/* ==========================
    Waste Pickup Scheduler
-   Developed by Elijah Omiwole
-   =========================== */
+   ========================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f7fb;
+    background:#f4f6f9;
     color:#333;
     line-height:1.6;
-    padding:20px;
 }
 
 .container{
-    max-width:1000px;
-    margin:auto;
+    max-width:900px;
+    margin:30px auto;
     background:#fff;
     padding:25px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
 }
 
 h1{
@@ -32,20 +30,58 @@ h1{
     margin-bottom:10px;
 }
 
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+}
+
 h2{
-    margin:25px 0 15px;
-    color:#222;
+    margin:20px 0 15px;
+    color:#0d6efd;
 }
 
-p{
-    margin-bottom:10px;
+label{
+    display:block;
+    margin-top:12px;
+    margin-bottom:5px;
+    font-weight:bold;
 }
 
-/* Dashboard */
+input,
+textarea,
+select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    margin-bottom:12px;
+    font-size:15px;
+}
+
+textarea{
+    resize:vertical;
+    min-height:80px;
+}
+
+button{
+    background:#0d6efd;
+    color:#fff;
+    border:none;
+    padding:12px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.3s;
+}
+
+button:hover{
+    background:#084298;
+}
 
 .dashboard{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
     gap:15px;
     margin:25px 0;
 }
@@ -53,10 +89,10 @@ p{
 .dashboard .card{
     background:#0d6efd;
     color:#fff;
+    text-align:center;
     padding:20px;
     border-radius:10px;
-    text-align:center;
-    box-shadow:0 3px 8px rgba(0,0,0,.2);
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
 .dashboard .card h3{
@@ -69,155 +105,60 @@ p{
     font-weight:bold;
 }
 
-/* Form */
-
-form{
-    margin-top:20px;
-}
-
-input,
-textarea,
-select{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-size:16px;
-}
-
-textarea{
-    resize:vertical;
-    min-height:100px;
-}
-
-button{
-    width:100%;
-    padding:12px;
-    background:#198754;
-    color:white;
-    border:none;
-    border-radius:6px;
-    font-size:17px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    background:#157347;
-}
-
-/* Search */
-
-#search{
-    margin-top:20px;
-}
-
-#statusFilter{
-    margin-bottom:20px;
-}
-
-/* Pickup Cards */
-
-.card{
-    background:#fafafa;
-    border-left:6px solid #0d6efd;
-    border-radius:8px;
+#pickupList .card,
+#feedbackList .card{
+    background:#fff;
+    border-left:5px solid #0d6efd;
     padding:15px;
-    margin:15px 0;
+    margin-bottom:15px;
+    border-radius:8px;
     box-shadow:0 2px 5px rgba(0,0,0,.1);
 }
 
-.card h3,
-.card h4{
+#pickupList .card h3,
+#feedbackList .card h3{
     color:#0d6efd;
     margin-bottom:8px;
 }
 
-.card p{
-    margin:5px 0;
+#pickupList button{
+    margin-right:10px;
+    margin-top:10px;
 }
 
-/* Status Badges */
-
-.badge{
-    display:inline-block;
-    padding:6px 12px;
-    border-radius:20px;
-    color:white;
-    font-size:13px;
-    font-weight:bold;
+#search,
+#statusFilter{
+    margin-bottom:15px;
 }
-
-.pending{
-    background:#ffc107;
-    color:#222;
-}
-
-.completed{
-    background:#198754;
-}
-
-.today{
-    background:#dc3545;
-}
-
-/* Action Buttons */
-
-.action-btn{
-    padding:8px 12px;
-    margin:5px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    color:white;
-}
-
-.edit-btn{
-    background:#0d6efd;
-}
-
-.delete-btn{
-    background:#dc3545;
-}
-
-.complete-btn{
-    background:#198754;
-}
-
-/* Feedback */
-
-#feedbackList .card{
-    border-left-color:#198754;
-}
-
-/* Footer */
 
 footer{
-    margin-top:35px;
     text-align:center;
-    color:#777;
+    margin-top:35px;
+    padding-top:20px;
+    border-top:1px solid #ddd;
+    color:#666;
     font-size:14px;
 }
 
-/* Responsive */
-
 @media(max-width:768px){
 
-.dashboard{
-grid-template-columns:1fr;
-}
+    .container{
+        margin:15px;
+        padding:20px;
+    }
 
-.container{
-padding:15px;
-}
+    h1{
+        font-size:28px;
+    }
 
-button{
-font-size:16px;
-}
+    button{
+        width:100%;
+        margin-top:10px;
+    }
 
-h1{
-font-size:28px;
-}
+    #pickupList button{
+        width:100%;
+        margin-right:0;
+    }
 
 }
